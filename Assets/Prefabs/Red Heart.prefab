@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 987390516156590970, guid: 3d33ba15d2a706944b62ed18c1a2faac, type: 3}
       propertyPath: m_Name
-      value: Heart
+      value: Red Heart
       objectReference: {fileID: 0}
     - target: {fileID: 1957481553903924926, guid: 3d33ba15d2a706944b62ed18c1a2faac, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -21,11 +21,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3360206394058394674, guid: 3d33ba15d2a706944b62ed18c1a2faac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3360206394058394674, guid: 3d33ba15d2a706944b62ed18c1a2faac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 3360206394058394674, guid: 3d33ba15d2a706944b62ed18c1a2faac, type: 3}
       propertyPath: m_LocalPosition.z
@@ -37,15 +37,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3360206394058394674, guid: 3d33ba15d2a706944b62ed18c1a2faac, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3360206394058394674, guid: 3d33ba15d2a706944b62ed18c1a2faac, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3360206394058394674, guid: 3d33ba15d2a706944b62ed18c1a2faac, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3360206394058394674, guid: 3d33ba15d2a706944b62ed18c1a2faac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

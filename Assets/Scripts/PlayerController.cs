@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
+    public char dir;
+    public bool symbol = false;
+    Vector3 position = new Vector3(-3.5f, 0.5f, 0.0f);
     void Start()
     {
         
@@ -14,24 +18,59 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
-            Vector3 position = this.transform.position;
+            position = this.transform.position;
             position.x--;
-            this.transform.position = position;
+            dir = 'a';
         }
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
-            Vector3 position = this.transform.position;
+            position = this.transform.position;
             position.x++;
-            this.transform.position = position;
+            dir = 'd';
         }
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
-            Vector3 position = this.transform.position;
+            position = this.transform.position;
             position.y++;
-            this.transform.position = position;
+            dir = 'w';
         }
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) {
-            Vector3 position = this.transform.position;
+            position = this.transform.position;
             position.y--;
-            this.transform.position = position;
+            dir = 's';
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Debug.Log("Collide.");
+        var wall = collision.gameObject.GetComponent<WallController>();
+        var star = collision.gameObject.GetComponent<StarController>();
+        var door_star = collision.gameObject.GetComponent<StarDoorController>();
+        if (wall != null || (door_star != null && !symbol)) {
+            if (dir == 'a') {
+                position.x++;
+            }
+            else if (dir == 'd') {
+                position.x--;
+            }
+            else if (dir == 'w') {
+                position.y--;
+            }
+            else if (dir == 's') {
+                position.y++;
+            }
+        }
+        else if (star != null) {
+            symbol = true;
+            collision.gameObject.SetActive(false);
+        }
+        else if (door_star != null) {
+            if (symbol) {
+                SceneManager.LoadScene("Level 1");
+            }
+        }
+    }
+    
+    void LateUpdate() {
+        this.transform.position = position;
     }
 }
