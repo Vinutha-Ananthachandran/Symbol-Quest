@@ -10,6 +10,17 @@ TagManager:
   - Wall
   - StarDoor
   - Wall2
+  - Lvl1 Wall1
+  - Lvl1 Wall2
+  - Lvl1 Wall3
+  - Square Door
+  - Triangle Door
+  - Lvl1 Water
+  - Tree
+  - Square
+  - Lvl1 Triangle
+  - Lvl1 Star
+  - Lvl1 Square
   layers:
   - Default
   - TransparentFX
