@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
         {
             if(starCount == 1)
             {
-                //SceneManager.LoadScene("Prototype_1");
+                SceneManager.LoadScene("Level 1");
             }
         }
 
