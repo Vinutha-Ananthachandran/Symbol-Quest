@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public Text result;
     public Text starSymbol;
     public Text triangleSymbol;
-    private int steps = 23;
+    private int steps = 30;
     private int starCount = 0;
     private int triangleCount = 0;
     private const string status = "GAME OVER!!";
@@ -20,6 +21,9 @@ public class PlayerController : MonoBehaviour
     public GameObject star;
     public GameObject triangle;
     private Vector3 position;
+
+    public char dir;
+    public bool symbol = false; 
     void Start()
     {
 
@@ -41,6 +45,7 @@ public class PlayerController : MonoBehaviour
                 position.x--;
                 this.transform.position = position;
                 diminish_steps(); // step counter
+                dir = 'a';
             }
         }
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
@@ -49,6 +54,7 @@ public class PlayerController : MonoBehaviour
                 position.x++;
                 this.transform.position = position;
                 diminish_steps(); // step counter
+                dir = 'd';
             }
         }
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
@@ -57,6 +63,7 @@ public class PlayerController : MonoBehaviour
                 position.y++;
                 this.transform.position = position;
                 diminish_steps(); // step counter
+                dir = 'w';
             }
         }
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) {
@@ -65,6 +72,7 @@ public class PlayerController : MonoBehaviour
                 position.y--;
                 this.transform.position = position;
                 diminish_steps(); // step counter
+                dir = 's';
             }
         }
 
@@ -79,6 +87,35 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //game checkpoint logic
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Wall2") || (collision.gameObject.CompareTag("StarDoor") && starCount == 0))
+        {
+            if (dir == 'a')
+            {
+                position.x++;
+            }
+            else if (dir == 'd')
+            {
+                position.x--;
+            }
+            else if (dir == 'w')
+            {
+                position.y--;
+            }
+            else if (dir == 's')
+            {
+                position.y++;
+            }
+            this.transform.position = position;
+        }
+        if (collision.gameObject.CompareTag("StarDoor"))
+        {
+            if(starCount == 1)
+            {
+                //SceneManager.LoadScene("Prototype_1");
+            }
+        }
+
         // Check if the collision involves a specific tag
         if (collision.gameObject.CompareTag("Water"))
         {
