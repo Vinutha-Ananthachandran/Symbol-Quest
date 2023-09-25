@@ -21,6 +21,7 @@ TagManager:
   - Lvl1 Triangle
   - Lvl1 Star
   - Lvl1 Square
+  - ResetButton
   layers:
   - Default
   - TransparentFX

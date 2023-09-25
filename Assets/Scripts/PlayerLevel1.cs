@@ -24,6 +24,7 @@ public class PlayerLevel1 : MonoBehaviour
     public GameObject heart3;
     public GameObject log1;
     public GameObject log2;
+    public GameObject button;
 
     private Vector3 position;
 
@@ -38,6 +39,8 @@ public class PlayerLevel1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        reset_player();
+        // button.SetActive(true);
         log1.SetActive(false);
         log2.SetActive(false);
     }
@@ -48,6 +51,8 @@ public class PlayerLevel1 : MonoBehaviour
         if (steps == 0)
         {
             result.text = status;
+
+            button.SetActive(true);
         }
         position = this.transform.position;
         // player movement - up down right left
@@ -105,6 +110,8 @@ public class PlayerLevel1 : MonoBehaviour
         position.x = -8.5f;
         position.y = -1;
         this.transform.position = position;
+
+        button.SetActive(false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -152,22 +159,23 @@ public class PlayerLevel1 : MonoBehaviour
                     if (heart3.activeSelf)
                     {
                         heart3.SetActive(false);
-                        reset_player();
+                        
                     }
                     else
                     {
                         if (heart2.activeSelf)
                         {
                             heart2.SetActive(false);
-                            reset_player();
+                            
                         }
                         else
                         {
                             heart1.SetActive(false);
                             steps = 0;
-                            reset_player();
+                            
                         }
                     }
+                    reset_player();
                 }
                 else
                 {
