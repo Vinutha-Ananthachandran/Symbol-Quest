@@ -20,13 +20,17 @@ public class PlayerController : MonoBehaviour
     public GameObject heart3;
     public GameObject star;
     public GameObject triangle;
+    public GameObject button;
     private Vector3 position;
+
+    //public Vector3 button_position;
 
     public char dir;
     public bool symbol = false; 
     void Start()
     {
-
+        reset_player();
+        
     }
 
     // Update is called once per frame
@@ -36,6 +40,10 @@ public class PlayerController : MonoBehaviour
         if(steps == 0)
         {
             result.text = status;
+
+            //setButtonPosition();
+            button.SetActive(true);
+            
         }
         position = this.transform.position;
         // player movement - up down right left
@@ -164,5 +172,9 @@ public class PlayerController : MonoBehaviour
         position.x = -8.5f;
         position.y = -1;
         this.transform.position = position;
+
+        button.SetActive(false);
     }
+
+    
 }
