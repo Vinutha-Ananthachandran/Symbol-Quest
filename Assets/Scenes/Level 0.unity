@@ -438,6 +438,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 993933357}
     m_Modifications:
     - target: {fileID: 1481050532392378207, guid: c5149f6512419b54fb41afe82745b120, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1481050532392378207, guid: c5149f6512419b54fb41afe82745b120, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
@@ -451,7 +455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2817356708081027081, guid: c5149f6512419b54fb41afe82745b120, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.496552
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2817356708081027081, guid: c5149f6512419b54fb41afe82745b120, type: 3}
       propertyPath: m_LocalPosition.y
@@ -894,6 +898,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &577337975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9128715444039034610, guid: 2e35c27ae3b7fe34781d3d775a7c0380, type: 3}
+  m_PrefabInstance: {fileID: 1656852933641437015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &591473555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,9 +1434,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1069021227}
   - component: {fileID: 1069021228}
+  - component: {fileID: 1069021229}
   m_Layer: 0
   m_Name: StarDoor
-  m_TagString: Untagged
+  m_TagString: StarDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1461,6 +1471,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f88823aa06f2ed4893019298f924ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &1069021229
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069021226}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 9, y: -1.2}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.1, y: 1.2}
+  m_EdgeRadius: 0
 --- !u!1 &1072302815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,7 +2164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 14293433339054673, guid: f4f8ac32d4b5f8d4687742bd696e1937, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.509593
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 14293433339054673, guid: f4f8ac32d4b5f8d4687742bd696e1937, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2184,7 +2220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7030722528460530535, guid: f4f8ac32d4b5f8d4687742bd696e1937, type: 3}
       propertyPath: m_TagString
-      value: StarDoor
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4f8ac32d4b5f8d4687742bd696e1937, type: 3}
@@ -2590,7 +2626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5825644052143075660, guid: 2e35c27ae3b7fe34781d3d775a7c0380, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.496552
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5825644052143075660, guid: 2e35c27ae3b7fe34781d3d775a7c0380, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2643,11 +2679,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1481050532392378207, guid: c5149f6512419b54fb41afe82745b120, type: 3}
       propertyPath: m_Size.x
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1481050532392378207, guid: c5149f6512419b54fb41afe82745b120, type: 3}
       propertyPath: m_Size.y
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1481050532392378207, guid: c5149f6512419b54fb41afe82745b120, type: 3}
       propertyPath: m_Enabled
@@ -2667,7 +2703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2817356708081027081, guid: c5149f6512419b54fb41afe82745b120, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.496552
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2817356708081027081, guid: c5149f6512419b54fb41afe82745b120, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2808,6 +2844,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1091563207}
     - target: {fileID: 5239766078663003544, guid: a686a23cf2a98ad439c86a771abca776, type: 3}
+      propertyPath: topWall
+      value: 
+      objectReference: {fileID: 1219191184}
+    - target: {fileID: 5239766078663003544, guid: a686a23cf2a98ad439c86a771abca776, type: 3}
       propertyPath: triangle
       value: 
       objectReference: {fileID: 830486598}
@@ -2816,9 +2856,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1285887104}
     - target: {fileID: 5239766078663003544, guid: a686a23cf2a98ad439c86a771abca776, type: 3}
+      propertyPath: doorPosition
+      value: 
+      objectReference: {fileID: 577337975}
+    - target: {fileID: 5239766078663003544, guid: a686a23cf2a98ad439c86a771abca776, type: 3}
       propertyPath: triangleSymbol
       value: 
       objectReference: {fileID: 456875263}
+    - target: {fileID: 5239766078663003544, guid: a686a23cf2a98ad439c86a771abca776, type: 3}
+      propertyPath: starDoorControl
+      value: 
+      objectReference: {fileID: 1069021226}
     - target: {fileID: 5239766078663003545, guid: a686a23cf2a98ad439c86a771abca776, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2833,7 +2881,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5239766078663003545, guid: a686a23cf2a98ad439c86a771abca776, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.5
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 5239766078663003545, guid: a686a23cf2a98ad439c86a771abca776, type: 3}
       propertyPath: m_LocalPosition.y

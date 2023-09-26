@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class PlayerController : MonoBehaviour
     public GameObject triangle;
     public GameObject button;
     private Vector3 position;
+    public GameObject starDoorControl;
+    public GameObject topWall;
+    public GameObject doorPosition;
+    private Transform wallTransform;
+    private Transform doorTransform;
 
     //public Vector3 button_position;
 
@@ -30,7 +36,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         reset_player();
-        
+        wallTransform = topWall.transform;
+        doorTransform = doorPosition.transform;
     }
 
     // Update is called once per frame
@@ -59,10 +66,21 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
             if(steps > 0)
             {
-                position.x++;
-                this.transform.position = position;
-                diminish_steps(); // step counter
-                dir = 'd';
+                if(position.x+1 < Math.Round(wallTransform.position.x,1))
+                {
+                    position.x++;
+                    this.transform.position = position;
+                    diminish_steps(); // step counter
+                    dir = 'd';
+                }
+                else
+                {
+                    if (position.y == Math.Round(doorTransform.position.y) && starCount == 1)
+                    {
+                        starDoorControl.SetActive(false);
+                        SceneManager.LoadScene("Level 1");
+                    }
+                }
             }
         }
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
@@ -96,34 +114,6 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //game checkpoint logic
-        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Wall2") || (collision.gameObject.CompareTag("StarDoor") && starCount == 0))
-        {
-            if (dir == 'a')
-            {
-                position.x++;
-            }
-            else if (dir == 'd')
-            {
-                position.x--;
-            }
-            else if (dir == 'w')
-            {
-                position.y--;
-            }
-            else if (dir == 's')
-            {
-                position.y++;
-            }
-            this.transform.position = position;
-        }
-        if (collision.gameObject.CompareTag("StarDoor"))
-        {
-            if(starCount == 1)
-            {
-                SceneManager.LoadScene("Level 1");
-            }
-        }
-
         // Check if the collision involves a specific tag
         if (collision.gameObject.CompareTag("Water"))
         {
@@ -169,12 +159,11 @@ public class PlayerController : MonoBehaviour
 
     void reset_player()
     {
-        position.x = -8.5f;
+        position.x = -9.5f;
         position.y = -1;
         this.transform.position = position;
 
         button.SetActive(false);
     }
-
     
 }

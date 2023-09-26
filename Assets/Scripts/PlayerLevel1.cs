@@ -25,6 +25,8 @@ public class PlayerLevel1 : MonoBehaviour
     public GameObject log1;
     public GameObject log2;
     public GameObject button;
+    public GameObject sDoorControl;
+    public GameObject tDoorControl;
 
     private Vector3 position;
 
@@ -107,45 +109,66 @@ public class PlayerLevel1 : MonoBehaviour
 
     void reset_player()
     {
-        position.x = -8.5f;
+        position.x = -9.5f;
         position.y = -1;
         this.transform.position = position;
 
         button.SetActive(false);
     }
 
+    void restrict_movement()
+    {
+        if (dir == 'a')
+        {
+            position.x++;
+        }
+        else if (dir == 'd')
+        {
+            position.x--;
+        }
+        else if (dir == 'w')
+        {
+            position.y--;
+        }
+        else if (dir == 's')
+        {
+            position.y++;
+        }
+        this.transform.position = position;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //game checkpoint logic
-        if (collision.gameObject.CompareTag("Square Door") && scount > 0)
+        if (collision.gameObject.CompareTag("Square Door"))
         {
-            SceneManager.LoadScene("Level 2A");
+            if (scount > 0)
+            {
+                sDoorControl.SetActive(false);
+                SceneManager.LoadScene("Level 2A");
+            }
+            else if (scount == 0)
+            {
+                restrict_movement();
+            }
         }
 
-        if (collision.gameObject.CompareTag("Triangle Door") && tcount > 0)
+        if (collision.gameObject.CompareTag("Triangle Door"))
         {
-            SceneManager.LoadScene("Level 2B");
+            if (tcount > 0)
+            {
+                tDoorControl.SetActive(false);
+                SceneManager.LoadScene("Level 2B");
+            }
+            else if (tcount == 0)
+            {
+                restrict_movement();
+            }
         }
-        if (collision.gameObject.CompareTag("Lvl1 Wall1") || collision.gameObject.CompareTag("Lvl1 Wall2") || collision.gameObject.CompareTag("Lvl1 Wall3") || (collision.gameObject.CompareTag("Triangle Door") && tcount == 0) || (collision.gameObject.CompareTag("Square Door") && scount == 0))
-        {
-            if (dir == 'a')
-            {
-                position.x++;
-            }
-            else if (dir == 'd')
-            {
-                position.x--;
-            }
-            else if (dir == 'w')
-            {
-                position.y--;
-            }
-            else if (dir == 's')
-            {
-                position.y++;
-            }
-            this.transform.position = position;
 
+        if (collision.gameObject.CompareTag("Lvl1 Wall1") || collision.gameObject.CompareTag("Lvl1 Wall2") || collision.gameObject.CompareTag("Lvl1 Wall3"))
+        {
+            restrict_movement();
         }
 
         // Check if the collision involves a specific tag
