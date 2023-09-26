@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public Text result;
     public Text starSymbol;
     public Text triangleSymbol;
-    private int steps = 30;
+    private int steps = 25;
     private int starCount = 0;
     private int triangleCount = 0;
     private const string status = "GAME OVER!!";
@@ -159,8 +159,8 @@ public class PlayerController : MonoBehaviour
 
     void reset_player()
     {
-        position.x = -9.5f;
-        position.y = -1;
+        position.x = -5.5f;
+        position.y = -2f;
         this.transform.position = position;
 
         button.SetActive(false);

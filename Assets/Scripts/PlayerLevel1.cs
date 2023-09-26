@@ -109,8 +109,8 @@ public class PlayerLevel1 : MonoBehaviour
 
     void reset_player()
     {
-        position.x = -9.5f;
-        position.y = -1;
+        position.x = -5.5f;
+        position.y = -2f;
         this.transform.position = position;
 
         button.SetActive(false);
